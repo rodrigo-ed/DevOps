@@ -1,0 +1,12 @@
+services:
+# Serviço da sua aplicação FastAPI.
+  app:
+    build: . # Constrói a imagem a partir do Dockerfile no diretório atual.
+    container_name: api
+    # O comando abaixo inicia a aplicação.
+    # A flag --reload do Dockerfile é substituída, pois é inútil sem um volume para refletir as mudanças do código.
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app # Monta o diretório atual no contêiner, permitindo que as alterações no código sejam refletidas imediatamente.
+
